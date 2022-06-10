@@ -9,9 +9,9 @@ PRODUCT_DETAILS_REQUESTS} from "../constants/productconst";
 
 export const getproduct=(keyword="",currentpage=1,greater=0,less=100000,categori="",rating=0)=>async(dispatch)=>{
     try{
-        let url=`/api/products?keyword${keyword}&page=${currentpage}&price[gte]=${greater}&price[lte]=${less}`
+        let url=`http://localhost:3000/api/products?keyword${keyword}&page=${currentpage}&price[gte]=${greater}&price[lte]=${less}`
         if(categori){
-            url=`/api/products?keyword${keyword}&page=${currentpage}&price[gte]=${greater}&price[lte]=${less}&category=${categori}`
+            url=`http://localhost:3000/api/products?keyword${keyword}&page=${currentpage}&price[gte]=${greater}&price[lte]=${less}&category=${categori}`
         }
         dispatch({
             type:ALL_PRODUCT_REQUESTS,
@@ -39,7 +39,7 @@ export const getproductdetails=(id)=>async(dispatch)=>{
     
     try{
        
-        let  url=`/api/product/${id}`
+        let  url=`http://localhost:3000/api/product/${id}`
         
         dispatch({
             type:PRODUCT_DETAILS_REQUESTS,

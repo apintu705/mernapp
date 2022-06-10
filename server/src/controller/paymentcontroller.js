@@ -1,5 +1,5 @@
 require("dotenv").config();
-const stripe=require("stripe")(process.env.STRIPE_PASSWORD)
+
 
 exports.processpayment=async(req,res,next) => {
     try{

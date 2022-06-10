@@ -8,7 +8,7 @@ export const orderfunc=(order)=>async(dispatch,getState)=>{
 
         const config={headers: {"content-type": "application/json"}};
 
-        const {data}=await axios.post("/api/order/new",order,config)
+        const {data}=await axios.post("http://localhost:3000/api/order/new",order,config)
         console.log(data)
         dispatch({type:CREATE_ORDER_SUCCESS,payload:data})
     }

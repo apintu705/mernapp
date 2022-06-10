@@ -1,6 +1,10 @@
 const express=require('express');
 const app = express();
 const cookieparser=require("cookie-parser")
+var cors = require('cors')
+
+ 
+app.use(cors())
 app.use(express.json());
 app.use(cookieparser())
 require('dotenv').config();
@@ -28,7 +32,7 @@ app.use("/api",payment)
 // middleware for error messages
 app.use(errormiddleware)
 
-const main=app.listen(process.env.PORT,async()=>{
+const main=app.listen(process.env.PORT||4040,async()=>{
     try{
         await connect()
         console.log(`listening on port ${process.env.PORT}`);

@@ -10,7 +10,7 @@ export const login=(email,password)=>async(dispatch)=>{
     try{
         const config={headers: {"content-type": "application/json"}}
         dispatch({type:LOGIN_REQUESTS})
-        const {data} = await axios.post("/api/login",{email,password},config);
+        const {data} = await axios.post("http://localhost:3000/api/login",{email,password},config);
         
         dispatch({type:LOGIN_SUCCESS,payload:data.user})
     }
@@ -29,7 +29,7 @@ export const register=(user)=>async(dispatch)=>{
         let password=user.password;
         const config={headers: {"content-type": "application/json"}}
         dispatch({type:REGISTER_REQUESTS})
-        const {data} = await axios.post("/api/register",{name,email,password},config);
+        const {data} = await axios.post("http://localhost:3000/api/register",{name,email,password},config);
         console.log(data)
         dispatch({type:REGISTER_SUCCESS,payload:data.user})
     }
@@ -42,7 +42,7 @@ export const loaduser=()=>async(dispatch)=>{
         try{
             const config={headers: {"content-type": "application/json"}}
             dispatch({type:LOAD_REQUESTS})
-            const {data} = await axios.get("/api/me",config);
+            const {data} = await axios.get("http://localhost:3000/api/me",config);
             
             dispatch({type:LOAD_SUCCESS,payload:data.user})
         }
@@ -58,7 +58,7 @@ export const logout=()=>async(dispatch)=>{
     try{
         const config={headers: {"content-type": "application/json"}}
         
-        const {data} = await axios.get("/api/logout",config);
+        const {data} = await axios.get("http://localhost:3000/api/logout",config);
         
         dispatch({type:LOGOUT_SUCCESS,payload:data.user})
     }

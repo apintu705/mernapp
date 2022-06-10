@@ -32,7 +32,7 @@ function App() {
   
   getstripekey()
   async function getstripekey(){
-    const {data}=await axios.get("/api/stripekey")
+    const {data}=await axios.get("http://localhost:3000/api/stripekey")
     setstripekey(data.stripeApiKey)
   }
  localStorage.setItem("stripekey",stripekey)
